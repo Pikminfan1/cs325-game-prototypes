@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -18,12 +18,12 @@
 
 
         function preload() {
-            game.load.image('sky', 'assets/bliss.jpg');
-            game.load.image('ground', 'assets/platform.png');
-            game.load.image('star', 'assets/star.png');
-            game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
-            game.load.image('bullet', 'assets/bullet.png');
-            game.load.image('bullet2', 'assets/bullet2.png');
+            game.load.image('sky', '../assets/bliss.jpg');
+            game.load.image('ground', '../assets/platform.png');
+            game.load.image('star', '../assets/star.png');
+            game.load.spritesheet('dude', '../assets/dude.png', 32, 48);
+            game.load.image('bullet', '../assets/bullet.png');
+            game.load.image('bullet2', '../assets/bullet2.png');
         }
 
         var platforms;
@@ -81,7 +81,7 @@
 
            //Create both players
             player = game.add.sprite(32, 0, 'dude');
-            player2 = game.add.sprite(64, 0, 'dude');
+            player2 = game.add.sprite(1900, 0, 'dude');
             player2.tint = 0x008000;
             player.tint = 0xFF0000;
             
