@@ -209,7 +209,7 @@ window.onload = function() {
             boxWin = true;
             mouseWin = false;
             cooldown.stop();
-            text.text = "Box\nWins"
+            text.text = " Box\nWins "
         }
         if (cursors.left.isDown)
         {
