@@ -44,6 +44,7 @@ window.onload = function() {
     var miss;
     var music;
     var mouseWin;
+    var boxWin;
 
 	
 	
@@ -52,7 +53,8 @@ window.onload = function() {
 		// World setup
 		game.world.setBounds(0, 0, 400, 400);
 		game.physics.startSystem(Phaser.Physics.Arcade);
-	    mouseWin = false;
+        mouseWin = false;
+        boxWin = false;
 		this.map = game.add.tilemap("map");
         
         this.map.addTilesetImage('finalTile', 'tiles');
@@ -92,10 +94,12 @@ window.onload = function() {
 	
     }
     function listener() {
-        text.text = "Mouse\nWins"
-        mouseWin = true;
-        clear.play();
-        cooldown.stop();
+        if (!boxWin) {
+            text.text = "Mouse\nWins"
+            mouseWin = true;
+            clear.play();
+            cooldown.stop();
+        }
 
     }
     function createFake(){
@@ -201,7 +205,8 @@ window.onload = function() {
 
 
         //console.log(cooldown.duration.toFixed(0));
-        if (cooldown.duration.toFixed(0) == 0 && !mouseWin){
+        if (cooldown.duration.toFixed(0) == 0 && !mouseWin) {
+            boxWin = true;
             cooldown.stop();
             text.text = "Box\nWins"
         }
