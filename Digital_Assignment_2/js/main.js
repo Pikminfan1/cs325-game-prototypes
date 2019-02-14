@@ -94,7 +94,7 @@ window.onload = function() {
 	
     }
     function listener() {
-        if (!boxWin) {
+        if (!boxWin && cooldown.duration.toFixed(0) > 0.0) {
             text.text = "Mouse\nWins"
             mouseWin = true;
             clear.play();
