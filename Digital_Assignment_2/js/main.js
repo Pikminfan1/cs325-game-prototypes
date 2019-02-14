@@ -79,7 +79,7 @@ window.onload = function() {
         
        
         cooldown = game.time.create(false);
-        cooldown.loop(30000,update,this);
+        cooldown.loop(60000,update,this);
         cooldown.start();
         createFake();
         music.play();
