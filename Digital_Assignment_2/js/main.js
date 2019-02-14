@@ -6,13 +6,13 @@ window.onload = function() {
     const game = new Phaser.Game(400, 400, Phaser.AUTO, 'game', {preload: preload, create: create, update: update} );
     
     function preload() {
-        game.load.spritesheet("player", "./assets/blocks.png", 16, 16,6);
-        game.load.spritesheet("fake", "./assets/blocks.png", 16, 16,6);
-		game.load.tilemap("map", "./assets/TileMap3.json", null, Phaser.Tilemap.TILED_JSON);
-        game.load.audio('miss','./assets/miss.wav');
-        game.load.audio('clear','./assets/clear.wav');
-		game.load.image("tiles","./assets/simples_pimples.png");
-        game.load.audio('music' ,'./assets/gameMusic.wav');
+        game.load.spritesheet("player", "../assets/blocks.png", 16, 16,6);
+        game.load.spritesheet("fake", "../assets/blocks.png", 16, 16,6);
+		game.load.tilemap("map", "../assets/TileMap3.json", null, Phaser.Tilemap.TILED_JSON);
+        game.load.audio('miss','../assets/miss.wav');
+        game.load.audio('clear','../assets/clear.wav');
+		game.load.image("tiles","../assets/simples_pimples.png");
+        game.load.audio('music' ,'../assets/gameMusic.wav');
     }
 	
 
