@@ -207,6 +207,7 @@ window.onload = function() {
         //console.log(cooldown.duration.toFixed(0));
         if (cooldown.duration.toFixed(0) == 0 && !mouseWin) {
             boxWin = true;
+            mouseWin = false;
             cooldown.stop();
             text.text = "Box\nWins"
         }
