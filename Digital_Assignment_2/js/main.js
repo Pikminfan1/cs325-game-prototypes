@@ -10,8 +10,8 @@ window.onload = function() {
         game.load.spritesheet("player", "./Assets/blocks.png", 16, 16,6);
         game.load.spritesheet("fake", "./Assets/blocks.png", 16, 16,6);
 	game.load.tilemap("map", "./Assets/TileMap3.json", null, Phaser.Tilemap.TILED_JSON);
-        game.load.audio('miss','./Assets/miss.wav');
-        game.load.audio('clear','./Assets/clear.wav');
+        game.load.audio('miss','./Assets/miss.WAV');
+        game.load.audio('clear','./Assets/clear.WAV');
 	game.load.image("tiles","./Assets/simples_pimples.png");
         game.load.audio('music' ,'./Assets/gameMusic.wav');
     }
