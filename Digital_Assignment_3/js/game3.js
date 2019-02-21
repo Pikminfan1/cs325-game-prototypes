@@ -20,8 +20,8 @@ var game3 = {
     var: returnKey = null,
     var: bRmode = null,
     var: music = null,
-    var: pew = null,
-    var: death = null,
+   // var: pew = null,
+    //var: death = null,
     
     init: function (mode,p1, p2) {
         p1health = p1;
@@ -37,8 +37,8 @@ var game3 = {
         game.load.spritesheet("bullet", "./assets/bullet.png", 8, 8, 8);
         game.load.spritesheet("bullet2", "./assets/bullet2.png", 8, 8, 8);
         game.load.audio('music', './assets/flashman.wav');
-	game.load.audio('death', './assets/Death.wav');
-        game.load.audio('pew', './assets/laser9.mp3');
+	//game.load.audio('death', './assets/Death.wav');
+      //  game.load.audio('pew', './assets/laser9.mp3');
 	
     },
 
@@ -50,8 +50,7 @@ var game3 = {
     create: function () {
 
         music = game.add.audio('music');
-	death = game.add.audio('death');
-        pew = game.add.audio('pew');
+	
         gameActive = true,
         music.loopFull(0.1);
         music.loop = true;
@@ -150,11 +149,11 @@ var game3 = {
         }
 
         if (fireButton2.isDown&&fire2) {
-	    pew.play();
+	   // pew.play();
             this.fireBullet2();
         }
         if (fireButton1.isDown&& fire1) {
-	    pew.play();
+	   // pew.play();
             this.fireBullet1();
         }
         bullets1.forEachAlive(this.updateBullets, this);
@@ -169,7 +168,7 @@ var game3 = {
         p2health -= 10;
         player2healthtext.text = "Player2 Health: " + p2health;
         if (p2health == 0) {
-	    death.play();
+	   // death.play();
             player2.kill();
             this.gameOver("PLAYER 1");
         }
@@ -183,7 +182,7 @@ var game3 = {
         p1health -= 10;
         player1healthtext.text = "Player1 Health: " + p1health;
         if (p1health == 0) {
-	    death.play();
+	   // death.play();
             player.kill();
             this.gameOver("PLAYER 2");
         }
