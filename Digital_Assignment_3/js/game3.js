@@ -48,10 +48,7 @@ var game3 = {
 	
 	
     create: function () {
-	stars = game.add.group();
-        for(var x = 0; x < 100;x++){
-            stars.create(game.world.randomX,game.world.randomY,'star');
-        }
+
         music = game.add.audio('music');
 	death = game.add.audio('death');
         pew = game.add.audio('pew');
