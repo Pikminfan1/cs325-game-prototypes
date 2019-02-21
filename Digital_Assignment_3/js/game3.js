@@ -22,6 +22,7 @@ var game3 = {
     var: music = null,
     var: pew = null,
     var: death = null,
+    var: stars = null,
     init: function (mode,p1, p2) {
         p1health = p1;
         p2health = p2;
@@ -38,6 +39,7 @@ var game3 = {
         game.load.audio('music', './assets/flashman.wav');
 	game.load.audio('death', './assets/Death.wav');
         game.load.audio('pew', './assets/laser9.mp3');
+	game.load.spritesheet('star', './assets/star.png');
     },
 
 
@@ -46,6 +48,10 @@ var game3 = {
 	
 	
     create: function () {
+	stars = game.add.group();
+        for(var x = 0; x < 100;x++){
+            stars.create(game.world.randomX,game.world.randomY,'star');
+        }
         music = game.add.audio('music');
 	death = game.add.audio('death');
         pew = game.add.audio('pew');
