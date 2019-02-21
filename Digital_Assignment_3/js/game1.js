@@ -16,6 +16,7 @@ var game1 = {
     var: enemies = null,
     var: enimies = null,
     var: gameActive = true,
+    var: pew = null,
 
     init: function (mode,p1,p2) {
         bRmode = mode;
@@ -25,6 +26,7 @@ var game1 = {
         game.load.spritesheet('enemy', './assets/enemy.png', 16, 16);
         game.load.spritesheet('bullet', './assets/bullet.png', 8, 8, 8);
         game.load.audio('death', './assets/Death.wav');
+        game.load.audio('pew', './assets/laser9.mp3');
     },
 
 
@@ -38,6 +40,7 @@ var game1 = {
         gameActive = true;
         health = 100;
         death = game.add.audio('death');
+        pew = game.add.audio('pew');
         timertext = game.add.text(80, 80, "TIME: ", { fill: 'white' });
         healthtext = game.add.text(580, 80, "Health: " + health, { fill: 'white' });
         //console.log(test1);
@@ -144,6 +147,7 @@ var game1 = {
 
         if (fireButton.isDown) {
             this.fireBullet();
+            pew.play();
          }
 
         bullets.forEachAlive(this.updateBullets, this);
