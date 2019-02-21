@@ -14,6 +14,7 @@ var game2 = {
     var: gameActive = true,
     var: pew = null,
     var: death = null,
+    var: stars = null,
     init: function (mode,p1health) {
         Player1Health = p1health;
         bRmode = mode;
@@ -25,6 +26,7 @@ var game2 = {
         game.load.spritesheet("bullet", "./assets/bullet2.png", 8, 8, 8);
 	game.load.audio('pew', './assets/laser9.mp3');
 	game.load.audio('death', './assets/Death.wav');
+	game.load.spritesheet('star', './assets/star.png');
     },
 
 
@@ -36,6 +38,10 @@ var game2 = {
 	
 	
     create: function () {
+	stars = game.add.group();
+        for(var x = 0; x < 100;x++){
+            stars.create(game.world.randomX,game.world.randomY,'star');
+        }
         gameActive = true,
 	pew = game.add.audio('pew');
 	death = game.add.audio('death');
