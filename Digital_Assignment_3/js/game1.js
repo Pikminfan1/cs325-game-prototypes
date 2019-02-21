@@ -39,6 +39,10 @@ var game1 = {
 
 
     create: function () {
+        stars = game.add.group();
+        for(var x = 0; x < 100;x++){
+            stars.create(game.world.randomX,game.world.randomY,'star');
+        }
         gameActive = true;
         health = 100;
         death = game.add.audio('death');
@@ -85,10 +89,7 @@ var game1 = {
         bullets.physicsBodyType = Phaser.Physics.ARCADE;
         this.createEnemies();
         
-        stars = game.add.group();
-        for(var x = 0; x < 100;x++){
-            stars.create(game.world.randomX,game.world.randomY,'star');
-        }
+
         
         
        
