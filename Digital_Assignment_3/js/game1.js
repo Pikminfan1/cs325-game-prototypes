@@ -21,11 +21,12 @@ var game1 = {
         bRmode = mode;
     },
     preload: function () {
-        game.load.spritesheet("player1", "./Assets/player1.png", 16, 16,);
-        game.load.spritesheet("enemy", "./Assets/enemy.png", 16, 16);
-        game.load.spritesheet("bullet", "./Assets/bullet.png", 8, 8, 8);
-        game.load.audio("death", './Assets/Death.wav');
+        game.load.spritesheet('player1', './Assets/player1.png', 16, 16,);
+        game.load.spritesheet('enemy', './Assets/enemy.png', 16, 16);
+        game.load.spritesheet('bullet', './Assets/bullet.png', 8, 8, 8);
+        game.load.audio('death', './Assets/Death.wav');
     },
+
 
 
     updateCounter: function () {
