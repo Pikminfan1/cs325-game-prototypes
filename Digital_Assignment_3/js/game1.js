@@ -105,7 +105,7 @@ var game1 = {
         //this.timertext.fixedToCamera = true;
         total = this.timer.duration.toFixed(0);
         if (health <= 0) {
-            death.play();
+            
             total = 0;
             if (enterKey.isDown && !gameActive) {
                 game.state.start("menu", true, false, 5);
