@@ -86,7 +86,7 @@ var game1 = {
         this.createEnemies();
         
         stars = game.add.group();
-        for(var x = 0; x < 100){
+        for(var x = 0; x < 100;x++){
             stars.create(game.world.randomX,game.world.randomY,'star');
         }
         
