@@ -146,8 +146,9 @@ var game1 = {
         }
 
         if (fireButton.isDown) {
-            this.fireBullet();
             pew.play();
+            this.fireBullet();
+            
          }
 
         bullets.forEachAlive(this.updateBullets, this);
