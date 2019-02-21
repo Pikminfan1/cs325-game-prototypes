@@ -27,12 +27,12 @@ var game3 = {
 
     },
     preload: function () {
-        game.load.spritesheet("player1", "./Assets/player1.png", 16, 16, 6);
-        game.load.spritesheet("player2", "./Assets/player2.png", 16, 16, 6);
+        game.load.spritesheet("player1", "./assets/player1.png", 16, 16, 6);
+        game.load.spritesheet("player2", "./assets/player2.png", 16, 16, 6);
         //game.load.spritesheet("enemy", "./Assets/color.png", 16, 16, 6);
-        game.load.spritesheet("bullet", "./Assets/bullet.png", 8, 8, 8);
-        game.load.spritesheet("bullet2", "./Assets/bullet2.png", 8, 8, 8);
-        game.load.audio('music', './Assets/flashman.wav');
+        game.load.spritesheet("bullet", "./assets/bullet.png", 8, 8, 8);
+        game.load.spritesheet("bullet2", "./assets/bullet2.png", 8, 8, 8);
+        game.load.audio('music', './assets/flashman.wav');
     },
 
 

@@ -18,9 +18,9 @@ var game2 = {
         console.log(bRmode);
     },
     preload: function () {
-        game.load.spritesheet("player2", "./Assets/player2.png", 16, 16);
-        game.load.spritesheet("enemy", "./Assets/enemy.png", 16, 16);
-        game.load.spritesheet("bullet", "./Assets/bullet2.png", 8, 8, 8);
+        game.load.spritesheet("player2", "./assets/player2.png", 16, 16);
+        game.load.spritesheet("enemy", "./assets/enemy.png", 16, 16);
+        game.load.spritesheet("bullet", "./assets/bullet2.png", 8, 8, 8);
     },
 
 
