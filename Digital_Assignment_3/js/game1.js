@@ -17,6 +17,7 @@ var game1 = {
     var: enimies = null,
     var: gameActive = true,
     var: pew = null,
+    var: stars = null,
 
     init: function (mode,p1,p2) {
         bRmode = mode;
@@ -27,6 +28,7 @@ var game1 = {
         game.load.spritesheet('bullet', './assets/bullet.png', 8, 8, 8);
         game.load.audio('death', './assets/Death.wav');
         game.load.audio('pew', './assets/laser9.mp3');
+        game.load.spritesheet('star', './assets/star.png');
     },
 
 
@@ -82,6 +84,11 @@ var game1 = {
         enemies.physicsBodyType = Phaser.Physics.ARCADE;
         bullets.physicsBodyType = Phaser.Physics.ARCADE;
         this.createEnemies();
+        
+        stars = game.add.group();
+        for(var x = 0; x < 100){
+            stars.create(game.world.randomX,game.world.randomY,'star');
+        }
         
         
        
