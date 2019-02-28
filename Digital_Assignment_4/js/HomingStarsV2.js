@@ -98,10 +98,7 @@ var HomingStarsV2 = {
 
         
     },
-    moveEnemy: function () {
 
-
-    },
     bark: function () {
         if (game.time.now > nextBark && barks.countDead() > 0) {
             nextBark = game.time.now + barkRate;
