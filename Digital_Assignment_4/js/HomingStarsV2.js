@@ -27,6 +27,7 @@ var HomingStarsV2 = {
     var: rand = 0,
     var: gameOverText = null,
     val: ghostFloat = null,
+    val: bork = null,
     init: function () {
     },
 
@@ -38,10 +39,12 @@ var HomingStarsV2 = {
         game.load.tilemap('dogMap', './assets/dogMap.json', null, Phaser.Tilemap.TILED_JSON);
         game.load.image('tiles', './assets/groundtile64x40.png');
         game.load.spritesheet('bark', './assets/bark.png', 128, 64);
+        game.load.audio('bork', './ assets / dogsfx.wav')
         //game.load.image('obstacle', './assets/diamond.png');
     },
    
     create: function () {
+        bork = game.add.audio('bork');
         game.stage.backgroundColor = "#4488AA";
         player1 = game.add.sprite(10, 10, 'player1');
         game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -110,7 +113,8 @@ var HomingStarsV2 = {
             bark.reset(player1.x - 5, player1.y - 10);
             console.log("here");
             game.physics.arcade.moveToPointer(bark, 400);
-            
+            bork.play();
+            bork._sound.playbakRate.value = game.rnd.frac();
             
             
         }
