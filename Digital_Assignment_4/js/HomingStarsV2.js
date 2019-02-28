@@ -39,7 +39,7 @@ var HomingStarsV2 = {
         game.load.tilemap('dogMap', './assets/dogMap.json', null, Phaser.Tilemap.TILED_JSON);
         game.load.image('tiles', './assets/groundtile64x40.png');
         game.load.spritesheet('bark', './assets/bark.png', 128, 64);
-        game.load.audio('bork', './ assets / dogsfx.wav')
+        game.load.audio('bork', './assets/dogsfx.wav')
         //game.load.image('obstacle', './assets/diamond.png');
     },
    
