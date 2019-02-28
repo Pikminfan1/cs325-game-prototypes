@@ -114,7 +114,7 @@ var HomingStarsV2 = {
             console.log("here");
             game.physics.arcade.moveToPointer(bark, 400);
             bork.play();
-            bork._sound.playbakRate.value = Math.floor(Math.random() * (2 - 1) + 1) / 1;
+            bork._sound.playbackRate.value = Math.floor(Math.random() * (2 - 1) + 1) / 1;
             
             
         }
