@@ -209,7 +209,7 @@ var HomingStarsV2 = {
             {
                 player1Ghost.animations.play('walk', 8, true);
                 
-                timer -= Math.round(score.toString().length-1/100);
+                timer -= Math.round(score.toString().length-1/10);
                 if (player1Ghost.body.velocity.x > 0) {
                     player1Ghost.body.velocity.x -= 15;
                 } else {
