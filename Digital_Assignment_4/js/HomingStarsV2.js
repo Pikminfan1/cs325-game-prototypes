@@ -36,7 +36,7 @@ var HomingStarsV2 = {
         game.load.spritesheet('player1Ghost', './assets/dog_sprite_sheetx4.png', 64, 44);
         game.load.spritesheet('obstacle', './assets/ghost.png', 20, 18);
         game.load.tilemap('dogMap', './assets/dogMap.json', null, Phaser.Tilemap.TILED_JSON);
-        game.load.image('tiles', './assets/groundtile64x40');
+        game.load.image('tiles', './assets/groundtile64x40.png');
         game.load.spritesheet('bark', './assets/bark.png', 128, 64);
         //game.load.image('obstacle', './assets/diamond.png');
     },
