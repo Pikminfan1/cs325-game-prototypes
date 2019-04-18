@@ -24,8 +24,8 @@ var pigGame = {
         game.load.image('test', './assets/diamond.png');
         game.load.image('ground1', './assets/ground.png');
         game.load.image('cloudPlat', './assets/cloudPlat.png');
-        game.load.image('cloudLayer', './assets/cloudlayer')
-        game.load.image('fog', './assets/fog');
+        game.load.image('cloudLayer', './assets/cloudlayer.png')
+        game.load.image('fog', './assets/fog.png');
         game.load.image('cloud', './assets/cloud.webp');
         game.load.image('particle', './assets/particle.png');
         game.load.spritesheet('lightning', './assets/lightningbolt.png',32,32);
