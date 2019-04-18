@@ -13,7 +13,11 @@ var pigGame = {
     var: minTV = 50,
     var: cleanAniTime = 0,
     var: score = 0,
-    
+    var: pigsound1 = null,
+    var: pigsound2 = null,
+    var: airman = null,
+    var: pigDeath = null,
+    var: gameOverbool = false,
     
     init: function () {
     },
@@ -28,7 +32,11 @@ var pigGame = {
         game.load.image('fog', './assets/fog.png');
         game.load.image('cloud', './assets/cloud.webp');
         game.load.image('particle', './assets/particle.png');
-        game.load.spritesheet('lightning', './assets/lightningbolt.png',32,32);
+        game.load.spritesheet('lightning', './assets/lightningbolt.png', 32, 32);
+        
+        game.load.audio('pigsound1', './assets/pigsound1.wav');
+        game.load.audio('pigsound2', './assets/pigsound2.wav');
+        game.load.audio('pigDeath', './assets/pigDeath.wav');
         
         //game.load.image('obstacle', './assets/diamond.png');
     },
@@ -38,7 +46,7 @@ var pigGame = {
         game.stage.backgroundColor = "#4488AA";
         player1 = game.add.sprite(50, 10, 'player1');
         safety = game.add.sprite(50, 90, 'cloudPlat');
-
+        gameOverbool = false;
         game.physics.enable(safety);
         safety.body.immovable = true;
         safety.body.allowGravity = false;
@@ -50,8 +58,10 @@ var pigGame = {
       
         game.physics.arcade.gravity.y = 1000;
        
-       
-       
+        pigsound1 = game.add.audio('pigsound1');
+        pigsound2 = game.add.audio('pigsound2');
+        pigDeath = game.add.audio('pigDeath');
+
         
         
         player1.body.bounce.y = 0.05;
@@ -89,7 +99,7 @@ var pigGame = {
 
         emitter.makeParticles('particle');
         emitter.gravity = 0;
-
+        
         //game.input.onDown(particleBurst, this);
        
  
@@ -133,6 +143,8 @@ var pigGame = {
         player1.animations.play('sit', 3);
         if (cursors.up.isDown) {
             player1.animations.play('walk', 8, true);
+            pigsound1.play();
+            pigsound1._sound.playbackRate.value = (Math.random() * (1.5 - 0.9) + 0.9).toFixed(2);
             player1.body.velocity.y = -500;
             dJumpBool = true;
             
@@ -142,7 +154,8 @@ var pigGame = {
     doubleJump: function () {
         player1.animations.play('walk', 8, true);
         player1.body.velocity.y = -500;
-
+        pigsound2.play();
+        pigsound2._sound.playbackRate.value = (Math.random() * (1.5 - 0.9) + 0.9).toFixed(2);
         emitter.x = player1.body.x +5;
         emitter.y = player1.body.y -5;
 
@@ -168,7 +181,15 @@ var pigGame = {
     },
 
     gameOver: function () {
-        game.state.start("menu", true, false);
+        player1.kill();
+        pigDeath.play();
+        gameOverbool = true;
+        gameOverText = game.add.text(330, 330, "GAME OVER\nPRESS ENTER TO RETURN TO TITLE SCREEN", { fill: 'white', align: 'center' });
+
+
+        if (enterKey.isDown) {
+            game.state.start("menu", true, false);
+        }
     },
 
     
@@ -193,7 +214,9 @@ var pigGame = {
         }
         game.physics.arcade.collide(safety, player1);
         if (player1.body.y > 2000 || player1.body.x < -100) {
+            
             this.gameOver();
+
         }
         //console.log(game.time.now);
         //console.log(dJumpBool);
@@ -205,7 +228,7 @@ var pigGame = {
             }
             
         }
-        console.log(x);
+        //console.log(x);
         if (tilegroup.total < 10&&game.time.now - timeCheck > 1000) {
             this.platformCreator();
             
@@ -234,7 +257,9 @@ var pigGame = {
             if (cloud.body.x < -200) {
                 cloud.x = 2000;
                 cloud.body.velocity.x = (-1) * (Math.random() * (maxTV - minTV + 1) + minTV);
-                score += 10;
+                if (!gameOverbool) {
+                    score += 10;
+                }
             }
             var y = (Math.random() % 100) * 100;
 
@@ -265,7 +290,9 @@ var pigGame = {
         if (cleanKey.isDown) {
             if (cloud.alpha - 0.005 > 0) {
                 cloud.alpha -= 0.005;
-                score += 1;
+                if (!gameOverbool) {
+                    score += 1;
+                }
                 cleanAnitime = game.time.now;
 
                 if (game.time.now - cleanAniTime > 5000) {
