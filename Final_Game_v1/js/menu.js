@@ -8,8 +8,8 @@ var menu = {
 
 
     create: function () {
-        game.add.text(160, 80, "This Pig stole some magic glasses and is \n running from the cops through a thunderstorm", { fill: 'white', align: 'center'});
-        
+        game.add.text(230, 280, "This Pig stole some magic glasses and is \n running from the cops through a thunderstorm \n\nUse the A and D Keys to move, W to jump and S to clear clouds \n Remember, you can't jump when you're clearing the clouds", { fill: 'white', align: 'center'});
+        game.stage.backgroundColor = "#4488AA";
         enterKey = game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
         
 

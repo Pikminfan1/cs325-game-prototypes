@@ -18,6 +18,11 @@ var pigGame = {
     var: airman = null,
     var: pigDeath = null,
     var: gameOverbool = false,
+    var: upkey = null,
+    var: downkey = null,
+    var: leftkey = null,
+    var: rightkey = null,
+
     
     init: function () {
     },
@@ -26,7 +31,7 @@ var pigGame = {
     preload: function () {
         game.load.spritesheet('player1', './assets/pigSprites.png', 64, 44);
         game.load.image('test', './assets/diamond.png');
-        game.load.image('ground1', './assets/ground.png');
+
         game.load.image('cloudPlat', './assets/cloudPlat.png');
         game.load.image('cloudLayer', './assets/cloudlayer.png')
         game.load.image('fog', './assets/fog.png');
@@ -91,7 +96,7 @@ var pigGame = {
         //game.add.sprite(0, 0, 'fog');
         cloud = game.add.sprite(-200, 0, 'cloud');
         cloud.alpha = 0.0;
-        cleanKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+        
 
         scoretext = game.add.text(1030, 20, "SCORE: " + score, { fill: 'white' });
 
@@ -99,9 +104,13 @@ var pigGame = {
 
         emitter.makeParticles('particle');
         emitter.gravity = 0;
-        
+        upkey = game.input.keyboard.addKey(Phaser.Keyboard.W);
+        leftkey = game.input.keyboard.addKey(Phaser.Keyboard.A);
+        cleanKey = game.input.keyboard.addKey(Phaser.Keyboard.S);
+        rightkey = game.input.keyboard.addKey(Phaser.Keyboard.D);
+        //upkey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
         //game.input.onDown(particleBurst, this);
-       
+        
  
         
 
@@ -141,7 +150,7 @@ var pigGame = {
         dJumpBool = false;
         //console.log("JUMP");
         player1.animations.play('sit', 3);
-        if (cursors.up.isDown) {
+        if (upkey.isDown) {
             player1.animations.play('walk', 8, true);
             pigsound1.play();
             pigsound1._sound.playbackRate.value = (Math.random() * (1.5 - 0.9) + 0.9).toFixed(2);
@@ -182,22 +191,35 @@ var pigGame = {
 
     gameOver: function () {
         player1.kill();
+       // player1.alpha = 0.0;
         pigDeath.play();
         gameOverbool = true;
-        gameOverText = game.add.text(330, 330, "GAME OVER\nPRESS ENTER TO RETURN TO TITLE SCREEN", { fill: 'white', align: 'center' });
-
-
-        if (enterKey.isDown) {
-            game.state.start("menu", true, false);
-        }
     },
 
     
 
 
     update: function () {
+
+        if (gameOverbool) {
+
+            gameOverText = game.add.text(330, 330, "GAME OVER\nPRESS ENTER TO RETURN TO TITLE SCREEN", { fill: 'white', align: 'center' });
+
+
+            if (enterKey.isDown) {
+                game.state.start("menu", true, false);
+            }
+        }
+
+
+
+
+
+
+
         scoretext.text = "SCORE: " + score;
-        
+
+
 
 
 
@@ -213,8 +235,9 @@ var pigGame = {
             
         }
         game.physics.arcade.collide(safety, player1);
-        if (player1.body.y > 2000 || player1.body.x < -100) {
-            
+        
+        if ((player1.body.y > 2000 || player1.body.x < -100)&& !gameOverbool) {
+           
             this.gameOver();
 
         }
@@ -222,7 +245,7 @@ var pigGame = {
         //console.log(dJumpBool);
         var x = player1.body.velocity.y;
         if (dJumpBool && player1.body.velocity.y > 0) {
-            if (cursors.up.isDown) {
+            if (upkey.isDown) {
                 dJumpBool = false;
                 this.doubleJump();
             }
@@ -305,20 +328,20 @@ var pigGame = {
         } else {
             cloud.alpha += 0.001;
            
-            if (cursors.up.isDown) {
+            if (upkey.isDown) {
                 if (player1.body.onFloor()) {
                     player1.body.velocity.y = -500;
                 }
             }
             game.physics.arcade.collide(player1, strikes, this.gameOver);
             game.physics.arcade.collide(player1, tilegroup, this.jump);
-            if (cursors.left.isDown) {
+            if (leftkey.isDown) {
                 player1.body.velocity.x = -300;
                 player1.scale.x = 1;
                 player1.animations.play('walk', 8, true);
 
             }
-            else if (cursors.right.isDown) {
+            else if (rightkey.isDown) {
                 player1.body.velocity.x = 300;
                 player1.scale.x = -1;
                 player1.animations.play('walk', 8, true);
