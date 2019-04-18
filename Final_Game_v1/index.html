@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <script src="js/phaser.min.js"></script>
+    
+    <script src="js/menu.js"></script>
+    <script src="js/pigGame.js"></script>
+    <script>
+        var game = new Phaser.Game(1280, 800, Phaser.CANVAS);
+        game.state.add("menu", menu);
+       
+        game.state.add("pigGame", pigGame);
+        game.state.start("menu");
+
+            //game.state.add("game3", game3);
+    </script>
+    <title>Digital Assignment 4</title>
+
+    <style>
+        body {
+            color: #777;
+            font-family: "Avenir", Verdana, sans-serif;
+        }
+
+        #readme {
+            margin-top: 10px;
+        }
+    </style>
+
+</head>
+
+<div id="game"></div>
+<div id="readme">
+    <h2>This Pig stole some magic glasses and is running from the cops through a thunderstorm.</h2>
+
+<ul>
+<li><strong>Originality:</strong>
+This Game stars a pig on the run after stealing some magic glassses.
+</li>
+
+<li><strong>Technical Merit:</strong>
+This game wasn't too difficult to create, though the original scope was a fully fleged 2D platformer, I opted for a simpler infinite runner instead.'
+</li>
+
+<li><strong>Prototype Postmortem:</strong>
+What did you learn from this prototype?
+<ul> I got much better at producing and managing assets as well as control flow working on the first try. </ul>
+What was the easiest or hardest part of making it?
+<ul> Easiest part was setting up the core game, had the hardest time drawing the pig sprite to be honest. </ul>
+</li>
+
+<li><strong>Prototype Assets:</strong>
+I borrowed the dog sprite OpenGameArt.ORG (though I created a few extra frames myself and stitched it together) , made the tiles and tile map myself, the sound clip is the dog note from mario paint, though I doubt it is the source of the sound bite.
+<ul>
+
+</ul>
+</li>
+
+<li><strong>Prototype Closest Other Game:</strong>
+Code mostly came either original to this project or borrowed elements from my previous games such as the timer events from the previous game or the state system
+<ul>
+<li><a href = https://pikminfan1.github.io/cs325-game-prototypes/Digital_Assignment_4/> Project that this games skeleton came from </a></li>
+<li><a href = "https://phaser.io/examples/v2/audio/sound-complete"> Sound </a></li>
+
+
+<li><strong>High Concept:</strong>
+Run through the clouds as long as you can with your magic glasses.
+</li>
+
+<li><strong>Theme:</strong>
+State which of the Storymatic themes you used.
+    The theme I used was a pig wearing glasses.
+</li>
+
+<li><strong>Mandated Variety:</strong>
+State which input, randomness, genre, and play style you used in this prototype.
+<ul> Input: Keyboard (arrow keys) and Space bar
+    Up Jumps, Left and right move, space activates the glasses</ul>
+<ul> Genre: Single Player Arcade game </ul>
+<ul> Randomness in the spawn of the platforms. </ul>
+</li>
+
+<li><strong>Prototype Goal:</strong>
+I wanted to make a 2d platforming game where vision was a core mechanic.
+<ul> 	</ul>
+</li>
+
+<li><strong>Player Experience Goals:</strong>
+What experience do you want players to have when playing your game?
+<ul> I want the game to be easy to understand but hard to master. </ul>
+</li>
+
+<li><strong>Gameplay:</strong>
+
+<ul>  The player can jump, and double jump after jumping once, and can hold space to use the glasses to clear out clouds that obscure your vision</ul>
+</li>
+
+<li><strong>Strategies:</strong>
+
+<ul> Your score goes up when you clear clouds, and the pig is able to climb up the sides of clouds as well. </ul>
+</li>
+
+<li><strong>Story/Setting/Premise:</strong>
+A paragraph about the world your game is set in and who the characters are. What makes the game world and its occupants unique and interesting? Do the tokens represent something? If the game has a backstory, mention it here. If the game is abstract, then say so.
+How will the dramatic tension interact with the gameplay tension?
+<ul> This game is about a pig who stole a magical pair of glasses and fled to the heavens to escape. Unfortunatly its begining to storm so he must avoid lighting strikes in his escape.</ul>
+
+</li>
+
+<li><strong>Target Audience:</strong>
+A single sentence that describes the demographic you're trying to reach.
+<ul> People looking for a quick game featuring a pig with glasses. </ul>
+</li>
+
+<li><strong>Play Time:</strong>
+How long does your game take to play?
+<ul> As short as 5 seconds but as long as you can survive. </ul>
+</li>
+
+</ul>
+
+
+</body>
+</html>
