@@ -45,7 +45,7 @@ var pigGame = {
         
         game.load.audio('pigsound1', './assets/pigsound1.wav');
         game.load.audio('pigsound2', './assets/pigsound2.wav');
-        game.load.audio('pigDeath', './assets/pigDeath.wav');
+        game.load.audio('pigDeath', './assets/pigdeath.wav');
         game.load.audio('zap', './assets/zap.wav');
         //game.load.image('obstacle', './assets/diamond.png');
     },
